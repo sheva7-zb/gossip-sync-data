@@ -1,6 +1,55 @@
 # **gossip-sync-data**
 基于gossip协议的数据同步 java实现，定义了很多接口可自行实现满足数据同步要求。
 
+## 运行
+```
+cd ~/path
+mvn clean install
+cd /target
+java -jar cechealth-daq-light-gossip-demo-1.0-SNAPSHOT-jar-with-dependencies.jar
+
+```
+## 启动
+```
+public static void main(String[] args) throws Exception {
+        GossipStarter starter = new GossipStarter();
+        starter.startGossip();
+    }
+
+    public void startGossip() throws Exception {
+        String nodeId = "abc";
+        String cluster = "my_gossip_cluster";
+        String myIpAddress = InetAddress.getLocalHost().getHostAddress();
+        int port = 50000;
+        List<GossipSeed> seedNodes = new ArrayList();
+        GossipSeed seed = new GossipSeed();
+        seed.setCluster("my_gossip_cluster");
+        seed.setIp("192.168.7.62");
+        seed.setPort(50000);
+        seedNodes.add(seed);
+        GossipService.init(nodeId, cluster, myIpAddress, port, seedNodes, this.createGossipSetting(), (node, state) -> {
+            log.info("node:" + node + "  state: " + state);
+        });
+        GossipService.start();
+    }
+
+    private GossipSettings createGossipSetting() {
+        int gossipInterval = 10000;
+        int networkDelay = 2000;
+        String msgServerType = "UDP";
+        GossipSettings settings = new GossipSettings();
+        settings.setGossipInterval(gossipInterval);
+        settings.setNetworkDelay(networkDelay);
+        settings.setProvider(new DefaultProvider());
+        settings.setNodeSelector(new DefaultGossipNodeSelector());
+        if (MsgServerType.TCP.type().equals(msgServerType)) {
+            settings.setMsgService(new TCPMsgServiceImpl());
+        }
+        return settings;
+    }
+
+```
+
 
 ## 背景
    Gossip protocol 也叫 Epidemic Protocol （流行病协议），实际上它还有很多别名，比如：“流言算法”、“疫情传播算法”等。
