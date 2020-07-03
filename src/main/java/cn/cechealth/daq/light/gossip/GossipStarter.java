@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package cn.cechealth.daq.light.gossip;
+package cn.sheva7.daq.light.gossip;
 
 import cn.cechealth.daq.light.gossip.algorithm.impl.DefaultGossipNodeSelector;
 import cn.cechealth.daq.light.gossip.core.GossipService;
