@@ -3,8 +3,8 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>cn.cechealth.daq-light</groupId>
-	<artifactId>cechealth-daq-light-gossip-demo</artifactId>
+	<groupId>cn.sheva7.daq-light</groupId>
+	<artifactId>sheva7-daq-light-gossip-demo</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
 	<properties>
@@ -121,7 +121,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>cn.cechealth.daq.light.gossip.GossipStarter</mainClass>
+							<mainClass>cn.sheva7.daq.light.gossip.GossipStarter</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

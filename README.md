@@ -6,7 +6,7 @@
 cd ~/path
 mvn clean install
 cd /target
-java -jar cechealth-daq-light-gossip-demo-1.0-SNAPSHOT-jar-with-dependencies.jar
+java -jar sheva7-daq-light-gossip-demo-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 ```
 ## 启动
